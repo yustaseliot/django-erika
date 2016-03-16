@@ -1,0 +1,57 @@
+body{
+  font-size: 1.6em !important;
+}
+
+@media (min-width: 1200px){
+  .container{
+    max-width: 980px;
+  }
+}
+
+.navigation{
+  background: white !important;
+}
+
+a{
+  color: #09C !important;
+}
+
+a:hover{
+  color: #E05020 !important;
+  text-decoration: none !important;
+}
+
+article{
+  width: 95%;
+  margin-top: 50px;
+}
+
+article:first-child{
+  margin-top: 0;
+}
+
+article a:hover{
+  text-decoration: none !important;
+}
+
+article .post-inform{
+  font-size: 13px;
+  color: #888;
+}
+
+.left-block{
+  margin-top: 20px;
+}
+
+.categories{
+  width: 183px;
+  text-align: center;
+}
+
+.footer{
+  text-align: center;
+  color: #ccc;
+  font-size: 14px;
+  height: 5em;
+  line-height: 5em;
+}

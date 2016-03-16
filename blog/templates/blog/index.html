@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% block title %}Eliot's blog{% endblock%}
+{% block nav %}
+  <li><a class="active" style="color: black !important;">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/contact/">Contact</a></li>
+{% endblock %}
+{% block content %}
+  {% for post in post_list %}
+    <article>
+      <h2 class="post-title"><a href="{% url 'post_detail' post.id %}">{{ post.article_title}} </a></h2>
+      <div class="post-inform">
+        {{post.published_date}}
+      </div>
+      <p>{{post.article_short_text|linebreaks}}</p>
+      <a href="{% url 'post_detail' post.id %}">Читать далее</a>
+    </article>
+  {% endfor %}
+    <nav style="margin-top: 50px;">
+        <ul class="pager">
+          {% if page_obj.has_previous %}
+            <li class="previous"><a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&larr;</span>Следующая</a></li>
+          {% endif %}
+          {% if page_obj.has_next %}
+            <li class="next"><a href="?page={{ page_obj.next_page_number }}">Предыдущая <span aria-hidden="true">&rarr;</span></a></li>
+          {% endif %}
+      </ul>
+    </nav>
+{% endblock %}
+{% block last_articles %}
+  {% for post in post_list|slice:"5" %}
+      <span style="color: #E05020;">*</span> <a href="{% url 'post_detail' post.id %}">{{ post.article_title }}</a>
+      <br>
+  {% endfor%}
+{% endblock %}

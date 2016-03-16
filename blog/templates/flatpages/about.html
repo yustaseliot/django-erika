@@ -1,0 +1,15 @@
+{% extends 'flatpages/flatbase.html' %}
+{%block title%} About {% endblock %}
+
+{% block nav %}
+  <li><a href="../">Home</a></li>
+  <li><a class="active" style="color: black !important;">About</a></li>
+  <li><a href="/contact/">Contact</a></li>
+{% endblock %}
+
+{% block content %}
+<article>
+  <h2>Касим Амирханов</h2>
+  <p>{{ flatpage.content }}</p>
+</article>
+{% endblock %}
