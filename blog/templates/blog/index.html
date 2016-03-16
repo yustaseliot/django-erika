@@ -1,10 +1,12 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 {% block title %}Eliot's blog{% endblock%}
 {% block nav %}
   <li><a class="active" style="color: black !important;">Home</a></li>
   <li><a href="/about/">About</a></li>
   <li><a href="/contact/">Contact</a></li>
 {% endblock %}
+{% block col %}<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">{% endblock %}
 {% block content %}
   {% for post in post_list %}
     <article>
@@ -27,9 +29,11 @@
       </ul>
     </nav>
 {% endblock %}
+{% block avatar %}<img src="{% static 'blog/img/avatar.png' %}" class="img-circle center-block" alt="Circular Image">{% endblock%}
 {% block last_articles %}
-  {% for post in post_list|slice:"5" %}
+  <h3>Список статей:</h3>
+    {% for post in post_list|slice:"5" %}
       <span style="color: #E05020;">*</span> <a href="{% url 'post_detail' post.id %}">{{ post.article_title }}</a>
       <br>
-  {% endfor%}
+    {% endfor%}
 {% endblock %}

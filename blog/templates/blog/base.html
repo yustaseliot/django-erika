@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock%}</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'blog/css/style.css' %}" rel="stylesheet">
@@ -43,14 +43,13 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        {% block col %} {% endblock %}
           {% block content %}
           {% endblock %}
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 hidden-xs left-block">
-          <img src="{% static 'blog/img/avatar.png' %}" class="img-circle center-block" alt="Circular Image">
+          {% block avatar %}{% endblock %}
           <div class="categories center-block">
-            <h3>Список статей:</h3>
               {% block last_articles %}
               {% endblock %}
           </div>
